@@ -38,6 +38,7 @@
     flex-direction: column; /* Stack children vertically */
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -79,7 +80,7 @@
 /* Custom Scrollbar */
 /* For Webkit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0px; /* Hide scrollbar for Webkit browsers */
 }
 
 ::-webkit-scrollbar-track {
