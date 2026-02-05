@@ -33,9 +33,9 @@ const artists = [
 
 const MeetTheArtists = () => {
   return (
-    <div className='container mx-auto px-4 py-8'>
-      <h1 className='text-4xl font-bold text-center mb-8'>Meet Our Artists</h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+    <div className='container mx-auto px-4 py-6'>
+      <h1 className='text-4xl font-bold text-center mb-6'>Meet Our Artists</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
         {artists.map((artist) => (
           <ArtistCard key={artist.name} artist={artist} />
         ))}

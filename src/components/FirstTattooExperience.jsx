@@ -38,11 +38,11 @@ const tattooExamples = [
 
 const FirstTattooExperience = () => {
   return (
-    <div className='bg-background text-text-main py-16 sm:py-24 px-4 sm:px-6 lg:px-8'>
+    <div className='bg-background text-text-main py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-7xl mx-auto'>
         {/* Header Section */}
-        <div className='text-center mb-16'>
-          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-4'>
+        <div className='text-center mb-10'>
+          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-2'>
             Your first tattoo should feel exciting — not overwhelming.
           </h1>
           <p className='max-w-3xl mx-auto text-lg text-text-main/80'>
@@ -51,11 +51,11 @@ const FirstTattooExperience = () => {
           </p>
         </div>
 
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           {/* Left Column */}
           <div className='space-y-12'>
             <div>
-              <h2 className='text-2xl font-serif text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-2'>
                 This is probably what you’re worried about
               </h2>
               <ul className='space-y-3'>
@@ -68,7 +68,7 @@ const FirstTattooExperience = () => {
               </ul>
             </div>
             <div>
-              <h2 className='text-2xl font-serif text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-2'>
                 How we make first tattoos easier
               </h2>
               <ul className='space-y-3'>
@@ -89,7 +89,7 @@ const FirstTattooExperience = () => {
           <div className='space-y-12'>
             {/* Image Row */}
             <div>
-              <div className='grid grid-cols-3 gap-4 mb-2'>
+              <div className='grid grid-cols-3 gap-3 mb-1'>
                 {tattooExamples.map((img) => (
                   <img
                     key={img.caption}
@@ -99,7 +99,7 @@ const FirstTattooExperience = () => {
                   />
                 ))}
               </div>
-              <div className='grid grid-cols-3 gap-4 text-center'>
+              <div className='grid grid-cols-3 gap-3 text-center'>
                 {tattooExamples.map((img) => (
                   <p key={img.caption} className='text-sm text-text-main/60'>
                     {img.caption}
@@ -110,7 +110,7 @@ const FirstTattooExperience = () => {
 
             {/* Trust Section */}
             <div>
-              <h2 className='text-2xl font-serif text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-2'>
                 Why people trust us for their first tattoo
               </h2>
               <ul className='space-y-3'>

@@ -28,7 +28,7 @@ export default function Navbar({ currentPath }) {
             {({ open }) => (
                 <>
                     <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                        <div className='flex h-20 items-center justify-between'>
+                        <div className='flex h-16 items-center justify-between'>
                             <div className='flex shrink-0 items-center'>
                                 <a href='/' className='flex items-center'>
                                     <img
@@ -62,7 +62,7 @@ export default function Navbar({ currentPath }) {
                             <div className='hidden sm:block'>
                                 <a
                                     href='/appointments'
-                                    className='bg-primary text-background hover:bg-primary-light font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out self-center animate-pulse-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
+                                    className='bg-primary text-background hover:bg-primary-light font-bold py-1.5 px-5 rounded-lg transition duration-300 ease-in-out self-center animate-pulse-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
                                 >
                                     Book Now
                                 </a>
@@ -88,7 +88,7 @@ export default function Navbar({ currentPath }) {
                     </div>
 
                     <DisclosurePanel className='md:hidden'>
-                        <div className='space-y-1 px-2 pb-3 pt-2'>
+                        <div className='space-y-0.5 px-2 pb-2 pt-1'>
                             {navigation.map((item) => (
                                 <DisclosureButton
                                     key={item.name}
@@ -98,7 +98,7 @@ export default function Navbar({ currentPath }) {
                                         item.current
                                             ? 'bg-secondary'
                                             : 'hover:bg-secondary hover:text-primary',
-                                        'block rounded-md px-3 py-2 text-base font-medium text-center',
+                                        'block rounded-md px-2 py-1 text-base font-medium text-center',
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
                                 >
@@ -109,7 +109,7 @@ export default function Navbar({ currentPath }) {
                                 as='a'
                                 href='/appointments'
                                 onClick={showLoader} // Call showLoader on click
-                                className='bg-primary text-background hover:bg-primary-light block font-bold py-2 px-4 rounded-lg text-center mt-2 animate-pulse-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
+                                className='bg-primary text-background hover:bg-primary-light block font-bold py-1.5 px-3 rounded-lg text-center mt-2 animate-pulse-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
                             >
                                 Book Now
                             </DisclosureButton>

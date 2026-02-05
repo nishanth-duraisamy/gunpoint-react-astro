@@ -109,7 +109,7 @@ const BookingIsland = () => {
                         <h2 className='text-2xl font-serif text-text-main mb-4 text-center'>
                             {currentQuestion.question}
                         </h2>
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-3 mb-6'>
                             {currentQuestion.options.map((option) => (
                                 <button
                                     key={option}
@@ -132,7 +132,7 @@ const BookingIsland = () => {
                         <h2 className='text-2xl font-serif text-text-main mb-4 text-center'>
                             {currentQuestion.question}
                         </h2>
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
                             {currentQuestion.options.map((option) => (
                                 <button
                                     key={option}
@@ -157,7 +157,7 @@ const BookingIsland = () => {
                                 <h2 className='text-2xl font-serif text-text-main mb-4 text-center'>
                                     Which studio are you booking for?
                                 </h2>
-                                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-8'>
+                                <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-6'>
                                     {locations.map((location) => (
                                         <div
                                             key={location.name}
@@ -180,7 +180,7 @@ const BookingIsland = () => {
                             </>
                         )}
                         {formData.branch && (
-                            <div id='calendly-embed-section' className='mt-8 pt-4'>
+                            <div id='calendly-embed-section' className='mt-6 pt-4'>
                                 <CalendlyEmbed
                                     branch={formData.branch}
                                     formData={formData}
@@ -202,12 +202,12 @@ const BookingIsland = () => {
     };
 
     return (
-        <div className='bg-background min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8'>
+        <div className='bg-background min-h-screen flex flex-col items-center justify-center p-3 sm:p-4 lg:p-6'>
             {/* Helmet removed as SEO is handled by MainLayout.astro */}
-            <div className='w-full max-w-7xl mx-auto py-8'>
+            <div className='w-full max-w-7xl mx-auto py-6'>
                 {/* Progress Dots */}
                 {!showPreparationGuide && (
-                    <div className='flex justify-center items-center mb-8'>
+                    <div className='flex justify-center items-center mb-6'>
                         {filteredBookingSteps.map(({step}) => (
                             <React.Fragment key={step}>
                                 <div
@@ -226,7 +226,7 @@ const BookingIsland = () => {
                 {renderStepContent()}
 
                 {/* Navigation */}
-                <div className='flex justify-between items-center mt-12 w-full max-w-md mx-auto'>
+                <div className='flex justify-between items-center mt-8 w-full max-w-md mx-auto'>
                     {currentStep > 1 && !showPreparationGuide ? (
                         <button
                             onClick={handleBack}
@@ -239,7 +239,7 @@ const BookingIsland = () => {
                     )}
                 </div>
             </div>
-            <div className='w-full max-w-7xl mx-auto mt-16'>
+            <div className='w-full max-w-7xl mx-auto mt-10'>
                 {formData.service === 'First tattoo' && <FirstTattooExperience/>}
                 {formData.service === 'Cover-up' && <CoverUpExperience/>}
                 {formData.service === 'Fine-line / minimal' && <FineLineExperience/>}

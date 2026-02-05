@@ -39,11 +39,11 @@ const PreparationGuide = ({ bookedLocationDetails }) => {
   const contactPhoneNumber = '+91 76677 55644';
 
   return (
-    <div className='bg-background text-text-main py-16 sm:py-24 px-4 sm:px-6 lg:px-8'>
-      <div className='max-w-7xl mx-auto space-y-16'>
+    <div className='bg-background text-text-main py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
+      <div className='max-w-7xl mx-auto space-y-12'>
         {/* Header Section */}
         <div className='text-center'>
-          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-4'>
+          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-2'>
             Your Guide to a Great Tattoo Experience.
           </h1>
           <p className='max-w-3xl mx-auto text-lg text-text-main/80'>
@@ -52,12 +52,12 @@ const PreparationGuide = ({ bookedLocationDetails }) => {
         </div>
 
         {/* Main Content Grid */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           {/* Left Column - Preparation Steps */}
-          <div className='space-y-12'>
+          <div className='space-y-8'>
             {sections.map((section) => (
               <div key={section.title}>
-                <h2 className='text-2xl font-serif text-text-main mb-4'>
+                <h2 className='text-2xl font-serif text-text-main mb-2'>
                   {section.title}
                 </h2>
                 <ul className='space-y-3'>
@@ -75,10 +75,10 @@ const PreparationGuide = ({ bookedLocationDetails }) => {
           {/* Right Column - Additional Info / Contact */}
           <div className='space-y-8'>
             <div className='border-l-4 border-primary pl-4'>
-              <h2 className='text-2xl font-serif text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-2'>
                 Got Questions?
               </h2>
-              <p className='text-lg text-text-main/80 mb-4'>
+              <p className='text-lg text-text-main/80 mb-2'>
                 If you’re unsure about anything at all, don’t hesitate to reach out to us directly. We’re here to help make your tattoo experience as comfortable and clear as possible.
               </p>
               <p className='text-xl font-bold text-primary'>
@@ -102,7 +102,7 @@ const PreparationGuide = ({ bookedLocationDetails }) => {
             </div>
 
             <div className='bg-secondary p-6 rounded-lg'>
-                <h3 className='text-xl font-serif text-text-main mb-3'>Remember:</h3>
+                <h3 className='text-xl font-serif text-text-main mb-2'>Remember:</h3>
                 <p className='text-text-main/80'>
                     A good tattoo starts with good preparation. We look forward to seeing you!
                 </p>

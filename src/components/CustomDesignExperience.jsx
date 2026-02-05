@@ -5,11 +5,11 @@ import customDesign3 from '../assets/tattoo/custom/3.webp';
 
 const CustomDesignExperience = () => {
   return (
-    <div className='bg-background text-text-main py-16 sm:py-24 px-4 sm:px-6 lg:px-8'>
+    <div className='bg-background text-text-main py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-7xl mx-auto'>
         {/* Header Section */}
-        <div className='text-center mb-16'>
-          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-4'>
+        <div className='text-center mb-10'>
+          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-2'>
             Your Vision, Our Artistry: Custom Tattoo Design.
           </h1>
           <p className='max-w-3xl mx-auto text-lg text-text-main/80'>
@@ -20,14 +20,14 @@ const CustomDesignExperience = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           {/* Left Column */}
-          <div className='space-y-12'>
+          <div className='space-y-8'>
             <div>
-              <h2 className='text-2xl font-serif text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-2'>
                 The Custom Design Process
               </h2>
-              <ul className='space-y-3'>
+              <ul className='space-y-2'>
                 {[
                   'In-depth consultation to understand your ideas, style, and placement.',
                   'Collaborative design process with sketches and digital mock-ups.',
@@ -45,10 +45,10 @@ const CustomDesignExperience = () => {
               Every custom tattoo is a journey from imagination to skin.
             </p>
             <div>
-              <h2 className='text-2xl font-serif text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-2'>
                 What Makes Our Custom Designs Stand Out
               </h2>
-              <ul className='space-y-3'>
+              <ul className='space-y-2'>
                 {[
                   'Truly unique artwork tailored to your personal story.',
                   'Guidance on design longevity and skin compatibility.',
@@ -65,7 +65,7 @@ const CustomDesignExperience = () => {
           </div>
 
           {/* Right Column (Visuals & Gallery) */}
-          <div className='space-y-4'>
+          <div className='space-y-3'>
             <div className='group'>
               <img
                 src={customDesign1.src}

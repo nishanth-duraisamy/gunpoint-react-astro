@@ -72,15 +72,15 @@ const SEO_SERVICE_DETAILS = [
 
 const ServicesSection = () => {
   return (
-    <div className='bg-background text-text-main py-12'>
+    <div className='bg-background text-text-main py-8'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='text-center mb-12'>
+        <div className='text-center mb-8'>
           <h2 className='text-4xl font-body text-primary'>OUR SERVICES</h2>
           <p className='text-lg text-text-muted mt-2'>
             World-class ink, professional standards.
           </p>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
           {SERVICES.map((service) => (
             <div
               key={service.title}
@@ -108,13 +108,13 @@ const ServicesSection = () => {
         </div>
 
         {/* SEO Content Section */}
-        <div className='mt-20'>
-          <h2 className='text-3xl font-body text-primary text-center mb-10'>
+        <div className='mt-12'>
+          <h2 className='text-3xl font-body text-primary text-center mb-6'>
             In-Depth Look at Our Offerings at Gunpoint Tattoo Studio
           </h2>
-          <div className='space-y-12'>
+          <div className='space-y-8'>
             {SEO_SERVICE_DETAILS.map((detail) => (
-              <div key={detail.title} className='bg-secondary border border-white/5 rounded-lg p-8 shadow-lg'>
+              <div key={detail.title} className='bg-secondary border border-white/5 rounded-lg p-6 shadow-lg'>
                 <h3 className='text-2xl font-body text-primary mb-4'>{detail.title}</h3>
                 <p className='text-base text-text-muted leading-relaxed' dangerouslySetInnerHTML={{ __html: detail.content }}></p>
               </div>

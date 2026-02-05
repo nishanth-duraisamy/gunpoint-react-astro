@@ -24,10 +24,10 @@ const Footer = () => {
 
     return (
         <footer className='bg-secondary border-t-2 border-accent will-change-[transform]'>
-            <div className='max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8'>
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+            <div className='max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
                     {/* Contact Info */}
-                    <div className='space-y-4'>
+                    <div className='space-y-3'>
                         <h3 className='text-lg font-semibold text-primary'>Contact Us</h3>
                         <div className='flex items-center space-x-3'>
                             <PhoneIcon className='h-6 w-6 text-primary' />
@@ -49,7 +49,7 @@ const Footer = () => {
                     </div>
 
                     {/* Social Media */}
-                    <div className='space-y-4'>
+                    <div className='space-y-3'>
                         <h3 className='text-lg font-semibold text-primary'>Follow Us</h3>
                         <div className='flex space-x-4'>
                             {socialLinks.map((item) => (

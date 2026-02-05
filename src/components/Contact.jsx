@@ -23,15 +23,15 @@ const socialLinks = [
 
 const Contact = () => {
   return (
-    <div className='bg-background text-text-main py-12'>
+    <div className='bg-background text-text-main py-8'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='text-center mb-12'>
+        <div className='text-center mb-8'>
           <h2 className='text-4xl font-body text-primary'>Contact Us</h2>
           <p className='text-lg text-text-muted mt-2'>We're here to help. Reach out to us anytime.</p>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {/* Contact Info */}
-          <div className='bg-secondary border border-white/5 rounded-lg p-8 space-y-4'>
+          <div className='bg-secondary border border-white/5 rounded-lg p-6 space-y-3'>
             <h3 className='text-lg font-semibold text-primary'>Contact Information</h3>
             <div className='flex items-center space-x-3'>
               <PhoneIcon className='h-6 w-6 text-primary' />
@@ -53,7 +53,7 @@ const Contact = () => {
           </div>
 
           {/* Social Media */}
-          <div className='bg-secondary border border-white/5 rounded-lg p-8 space-y-4'>
+          <div className='bg-secondary border border-white/5 rounded-lg p-6 space-y-3'>
             <h3 className='text-lg font-semibold text-primary'>Follow Us</h3>
             <div className='flex space-x-4'>
               {socialLinks.map((item) => (

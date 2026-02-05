@@ -31,11 +31,11 @@ const transformations = [
 
 const CoverUpExperience = () => {
   return (
-    <div className='bg-background text-text-main py-16 sm:py-24 px-4 sm:px-6 lg:px-8'>
+    <div className='bg-background text-text-main py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-7xl mx-auto'>
         {/* Header Section */}
-        <div className='text-center mb-16'>
-          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-4'>
+        <div className='text-center mb-10'>
+          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-2'>
             You don’t want to see that tattoo anymore.
           </h1>
           <p className='max-w-3xl mx-auto text-lg text-text-main/80'>
@@ -45,14 +45,14 @@ const CoverUpExperience = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           {/* Left Column */}
-          <div className='space-y-12'>
+          <div className='space-y-8'>
             <div>
-              <h2 className='text-2xl font-serif text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-2'>
                 Common worries with cover-ups
               </h2>
-              <ul className='space-y-3'>
+              <ul className='space-y-2'>
                 {worries.map((item) => (
                   <li key={item} className='flex items-start'>
                     <CheckIcon className='h-6 w-6 text-primary mr-3 flex-shrink-0' />
@@ -67,10 +67,10 @@ const CoverUpExperience = () => {
             </p>
 
             <div>
-              <h2 className='text-2xl font-serif text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-2'>
                 Cover-ups designed to look intentional
               </h2>
-              <ul className='space-y-3'>
+              <ul className='space-y-2'>
                 {solutions.map((item) => (
                   <li key={item} className='flex items-start'>
                     <CheckIcon className='h-6 w-6 text-primary mr-3 flex-shrink-0' />
@@ -82,10 +82,10 @@ const CoverUpExperience = () => {
           </div>
 
           {/* Right Column */}
-          <div className='space-y-12'>
+          <div className='space-y-8'>
             {transformations.map((transform, index) => (
               <div key={index}>
-                <div className='grid grid-cols-3 gap-2 md:gap-4 mb-2'>
+                <div className='grid grid-cols-3 gap-1 md:gap-2 mb-1'>
                   {transform.images.map((img, i) => (
                     <img
                       key={i}

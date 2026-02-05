@@ -26,7 +26,7 @@ const HomeContent = () => {
     return (
         <>
             {/* Welcome Section */}
-            <div className='py-12 bg-background'>
+            <div className='py-8 bg-background'>
                 <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
                     <h2 className='text-3xl font-extrabold text-text-main'>
                         Welcome to Gunpoint Tattoo Studio
@@ -51,16 +51,16 @@ const HomeContent = () => {
             </div>
 
             {/* Our Expertise Section */}
-            <div className='bg-background py-16 sm:py-24'>
+            <div className='bg-background py-8 sm:py-16'>
                 <div className='mx-auto max-w-7xl px-6 lg:px-8'>
                     <div className='text-center'>
                         <h2 className='text-4xl text-primary sm:text-5xl'>OUR EXPERTISE</h2>
                     </div>
-                    <div className='mt-16 grid grid-cols-1 gap-8 sm:mt-20 md:grid-cols-3'>
+                    <div className='mt-10 grid grid-cols-1 gap-6 sm:mt-20 md:grid-cols-3'>
                         {expertiseData.map((item) => (
                             <div
                                 key={item.title}
-                                className='flex flex-col items-center rounded-lg border-2 border-secondary bg-secondary p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-primary'
+                                className='flex flex-col items-center rounded-lg border-2 border-secondary bg-secondary p-6 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-primary'
                             >
                                 <item.icon
                                     className='h-12 w-12 text-primary'
@@ -69,7 +69,7 @@ const HomeContent = () => {
                                 <h3 className='mt-6 text-2xl font-semibold leading-7 text-primary'>
                                     {item.title}
                                 </h3>
-                                <p className='mt-4 text-lg leading-6'>{item.description}</p>
+                                <p className='mt-4 text-lg leading-6 mb-2'>{item.description}</p>
                             </div>
                         ))}
                     </div>

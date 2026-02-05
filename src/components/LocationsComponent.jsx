@@ -2,13 +2,13 @@ import { locations } from '../data/locations';
 
 function LocationsComponent() {
   return (
-    <div className='bg-background-dark text-text-light py-12 px-4 sm:px-6 lg:px-8'>
+    <div className='bg-background-dark text-text-light py-8 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-7xl mx-auto'>
-        <div className='text-center mb-12'>
+        <div className='text-center mb-8'>
           <h1 className='text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl'>
             Visit Our Studios
           </h1>
-          <p className='mt-3 max-w-md mx-auto text-base text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl'>
+          <p className='mt-2 max-w-md mx-auto text-base text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl'>
             Find us in multiple cities, ready to bring your tattoo ideas to
             life.
           </p>
@@ -18,17 +18,17 @@ function LocationsComponent() {
           {locations.map((location) => (
             <div
               key={location.name}
-              className='flex flex-col md:flex-row items-center p-8 rounded-lg shadow-lg'
+              className='flex flex-col md:flex-row items-center p-6 rounded-lg shadow-lg'
             >
               <div className='md:w-1/2 md:pr-8'>
                 <img
                   src={location.image.src}
                   alt={location.name}
-                  className='w-full h-64 object-cover rounded-lg mb-6 md:mb-0'
+                  className='w-full h-64 object-cover rounded-lg mb-4 md:mb-0'
                 />
               </div>
               <div className='md:w-1/2 md:pr-8'>
-                <h2 className='text-3xl font-bold mb-4'>{location.name}</h2>
+                <h2 className='text-3xl font-bold mb-2'>{location.name}</h2>
                 <p className='text-lg mb-2'>
                   <strong>Address:</strong> {location.address}
                 </p>
