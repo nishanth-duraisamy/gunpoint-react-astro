@@ -43,7 +43,7 @@ const PreparationGuide = ({ bookedLocationDetails }) => {
       <div className='max-w-7xl mx-auto space-y-16'>
         {/* Header Section */}
         <div className='text-center'>
-          <h1 className='text-4xl sm:text-5xl font-display text-primary mb-4'>
+          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-4'>
             Your Guide to a Great Tattoo Experience.
           </h1>
           <p className='max-w-3xl mx-auto text-lg text-text-main/80'>
@@ -57,7 +57,7 @@ const PreparationGuide = ({ bookedLocationDetails }) => {
           <div className='space-y-12'>
             {sections.map((section) => (
               <div key={section.title}>
-                <h2 className='text-2xl font-display text-text-main mb-4'>
+                <h2 className='text-2xl font-serif text-text-main mb-4'>
                   {section.title}
                 </h2>
                 <ul className='space-y-3'>
@@ -75,7 +75,7 @@ const PreparationGuide = ({ bookedLocationDetails }) => {
           {/* Right Column - Additional Info / Contact */}
           <div className='space-y-8'>
             <div className='border-l-4 border-primary pl-4'>
-              <h2 className='text-2xl font-display text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-4'>
                 Got Questions?
               </h2>
               <p className='text-lg text-text-main/80 mb-4'>
@@ -102,7 +102,7 @@ const PreparationGuide = ({ bookedLocationDetails }) => {
             </div>
 
             <div className='bg-secondary p-6 rounded-lg'>
-                <h3 className='text-xl font-display text-text-main mb-3'>Remember:</h3>
+                <h3 className='text-xl font-serif text-text-main mb-3'>Remember:</h3>
                 <p className='text-text-main/80'>
                     A good tattoo starts with good preparation. We look forward to seeing you!
                 </p>

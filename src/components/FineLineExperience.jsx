@@ -7,7 +7,7 @@ const FineLineExperience = () => {
     <div className='bg-background text-text-main py-16 sm:py-24 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-7xl mx-auto'>
         <div className='text-center mb-16'>
-          <h1 className='text-4xl sm:text-5xl font-display text-primary mb-4'>
+          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-4'>
             You want something subtle, clean, and timeless.
           </h1>
           <p className='max-w-3xl mx-auto text-lg text-text-main/80'>
@@ -19,7 +19,7 @@ const FineLineExperience = () => {
         <div className='grid md:grid-cols-2 gap-16'>
           <div className='space-y-12'>
             <div>
-              <h2 className='text-2xl font-display text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-4'>
                 What most people worry about
               </h2>
               <ul className='space-y-3'>
@@ -35,11 +35,11 @@ const FineLineExperience = () => {
                 ))}
               </ul>
             </div>
-            <p className='text-xl font-display text-primary text-center lg:text-left border-l-4 border-primary pl-4'>
+            <p className='text-xl font-serif text-primary text-center lg:text-left border-l-4 border-primary pl-4'>
               Precision requires a steady hand, not speed.
             </p>
             <div>
-              <h2 className='text-2xl font-display text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-4'>
                 Clean tattoos, done with restraint
               </h2>
               <ul className='space-y-3'>

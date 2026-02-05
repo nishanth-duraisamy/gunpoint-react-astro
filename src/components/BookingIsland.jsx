@@ -130,7 +130,7 @@ const BookingIsland = () => { // Renamed from Appointments
       case 'service':
         return (
           <div className='w-full max-w-4xl mx-auto'>
-            <h2 className='text-2xl font-display text-text-main mb-4 text-center'>
+            <h2 className='text-2xl font-serif text-text-main mb-4 text-center'>
               {currentQuestion.question}
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
@@ -153,7 +153,7 @@ const BookingIsland = () => { // Renamed from Appointments
       case 'designContext':
         return (
           <div className='w-full max-w-md mx-auto'>
-            <h2 className='text-2xl font-display text-text-main mb-4 text-center'>
+            <h2 className='text-2xl font-serif text-text-main mb-4 text-center'>
               {currentQuestion.question}
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
@@ -178,7 +178,7 @@ const BookingIsland = () => { // Renamed from Appointments
           <div className='w-full max-w-4xl mx-auto'>
             {!showPreparationGuide && (
               <>
-                <h2 className='text-2xl font-display text-text-main mb-4 text-center'>
+                <h2 className='text-2xl font-serif text-text-main mb-4 text-center'>
                   Which studio are you booking for?
                 </h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-8'>
@@ -190,7 +190,7 @@ const BookingIsland = () => { // Renamed from Appointments
                       }
                       className={`p-6 text-lg text-text-main border-2 rounded-lg transition-all duration-300 cursor-pointer ${
                         formData.branch === location.displayName
-                          ? 'bg-primary border-primary text-background font-bold'
+                          ? 'bg-primary border-primary text-text-main'
                           : 'bg-secondary border-accent hover:border-primary'
                       }`}
                     >

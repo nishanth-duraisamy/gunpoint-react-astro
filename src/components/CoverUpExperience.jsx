@@ -35,7 +35,7 @@ const CoverUpExperience = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Header Section */}
         <div className='text-center mb-16'>
-          <h1 className='text-4xl sm:text-5xl font-display text-primary mb-4'>
+          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-4'>
             You don’t want to see that tattoo anymore.
           </h1>
           <p className='max-w-3xl mx-auto text-lg text-text-main/80'>
@@ -49,7 +49,7 @@ const CoverUpExperience = () => {
           {/* Left Column */}
           <div className='space-y-12'>
             <div>
-              <h2 className='text-2xl font-display text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-4'>
                 Common worries with cover-ups
               </h2>
               <ul className='space-y-3'>
@@ -62,12 +62,12 @@ const CoverUpExperience = () => {
               </ul>
             </div>
 
-            <p className='text-xl font-display text-primary text-center lg:text-left border-l-4 border-primary pl-4'>
+            <p className='text-xl font-serif text-primary text-center lg:text-left border-l-4 border-primary pl-4'>
               Cover-ups require strategy, not shortcuts.
             </p>
 
             <div>
-              <h2 className='text-2xl font-display text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-4'>
                 Cover-ups designed to look intentional
               </h2>
               <ul className='space-y-3'>

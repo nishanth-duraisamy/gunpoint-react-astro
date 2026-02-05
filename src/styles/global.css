@@ -11,11 +11,8 @@
   --color-accent: #8c6a28; /* Bronze (Borders) */
 
   --color-background: #000000; /* Deep Black */
-  --color-background-dark: var(--color-background); /* Explicitly map to deep black */
-  --color-background-light: var(--color-secondary); /* Map to gunmetal gray */
 
   --color-text-main: #ffffff; /* Primary White */
-  --color-text-light: var(--color-text-main); /* Explicitly map to primary white */
 
   --font-display: 'Pirata One', serif;
   --font-body: 'Lato', sans-serif;

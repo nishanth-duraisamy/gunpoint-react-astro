@@ -42,7 +42,7 @@ const FirstTattooExperience = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Header Section */}
         <div className='text-center mb-16'>
-          <h1 className='text-4xl sm:text-5xl font-display text-primary mb-4'>
+          <h1 className='text-4xl sm:text-5xl font-serif text-primary mb-4'>
             Your first tattoo should feel exciting — not overwhelming.
           </h1>
           <p className='max-w-3xl mx-auto text-lg text-text-main/80'>
@@ -55,7 +55,7 @@ const FirstTattooExperience = () => {
           {/* Left Column */}
           <div className='space-y-12'>
             <div>
-              <h2 className='text-2xl font-display text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-4'>
                 This is probably what you’re worried about
               </h2>
               <ul className='space-y-3'>
@@ -68,7 +68,7 @@ const FirstTattooExperience = () => {
               </ul>
             </div>
             <div>
-              <h2 className='text-2xl font-display text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-4'>
                 How we make first tattoos easier
               </h2>
               <ul className='space-y-3'>
@@ -80,7 +80,7 @@ const FirstTattooExperience = () => {
                 ))}
               </ul>
             </div>
-            <p className='text-xl font-display text-primary text-center lg:text-left border-l-4 border-primary pl-4'>
+            <p className='text-xl font-serif text-primary text-center lg:text-left border-l-4 border-primary pl-4'>
               This is a guided process — not a rushed appointment.
             </p>
           </div>
@@ -110,7 +110,7 @@ const FirstTattooExperience = () => {
 
             {/* Trust Section */}
             <div>
-              <h2 className='text-2xl font-display text-text-main mb-4'>
+              <h2 className='text-2xl font-serif text-text-main mb-4'>
                 Why people trust us for their first tattoo
               </h2>
               <ul className='space-y-3'>
