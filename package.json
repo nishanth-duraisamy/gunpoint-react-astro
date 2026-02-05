@@ -29,5 +29,8 @@
   },
   "overrides": {
     "node-pty": "npm:node-pty-prebuilt-multiarch@0.10.1-pre.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2"
   }
 }

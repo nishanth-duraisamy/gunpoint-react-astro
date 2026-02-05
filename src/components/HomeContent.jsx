@@ -26,7 +26,7 @@ const HomeContent = () => {
     return (
         <>
             {/* Welcome Section */}
-            <div className='py-12 bg-background-light'>
+            <div className='py-12 bg-background'>
                 <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
                     <h2 className='text-3xl font-extrabold text-text-main'>
                         Welcome to Gunpoint Tattoo Studio

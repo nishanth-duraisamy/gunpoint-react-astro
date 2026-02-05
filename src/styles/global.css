@@ -3,15 +3,19 @@
 
 @theme {
   /* Core Semantic Palette */
-  --color-primary: #d4af37;
-  --color-primary-light: #fce594;
-  --color-primary-dark: #4a3612;
+  --color-primary: #d4af37; /* Brand Gold */
+  --color-primary-light: #fce594; /* Hover Gold */
+  --color-primary-dark: #4a3612; /* Shadow/Depth */
 
-  --color-secondary: #333333;
-  --color-accent: #8c6a28;
+  --color-secondary: #333333; /* Gunmetal Gray (Cards) */
+  --color-accent: #8c6a28; /* Bronze (Borders) */
 
-  --color-background: #000000;
-  --color-text-main: #ffffff;
+  --color-background: #000000; /* Deep Black */
+  --color-background-dark: var(--color-background); /* Explicitly map to deep black */
+  --color-background-light: var(--color-secondary); /* Map to gunmetal gray */
+
+  --color-text-main: #ffffff; /* Primary White */
+  --color-text-light: var(--color-text-main); /* Explicitly map to primary white */
 
   --font-display: 'Pirata One', serif;
   --font-body: 'Lato', sans-serif;
