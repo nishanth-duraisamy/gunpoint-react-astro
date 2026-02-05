@@ -13,5 +13,5 @@ const ogUrl = "https://gunpointtattoostudio.com/appointments";
     {/* We use client:load because the entire booking flow
       and the global loader need to be ready immediately.
     */}
-    <BookingIsland client:load />
+    <BookingIsland client:only="react" />
 </MainLayout>

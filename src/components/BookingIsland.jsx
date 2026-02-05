@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useLoading } from '../contexts/LoadingContext';
+
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'; // Assuming it's from 24/outline, common path
 import FirstTattooExperience from '../components/FirstTattooExperience';
 import CoverUpExperience from '../components/CoverUpExperience';
@@ -52,8 +51,6 @@ const BookingIsland = () => { // Renamed from Appointments
   });
   const [showPreparationGuide, setShowPreparationGuide] = useState(false);
   const [bookedLocationDetails, setBookedLocationDetails] = useState(null);
-  const navigate = useNavigate();
-  const { setLoading } = useLoading();
 
   const handleCalendlyEventTypeViewed = useCallback(() => {
     const calendlyEmbedSection = document.getElementById(
@@ -65,14 +62,13 @@ const BookingIsland = () => { // Renamed from Appointments
         block: 'start',
       });
     }
-    setLoading(false);
-  }, [setLoading]);
+  }, []); // setLoading removed from dependencies
 
   useEffect(() => {
-    navigate(window.location.pathname, { replace: true });
+    window.history.replaceState({}, '', window.location.pathname);
 
     const handlePopState = () => {
-      navigate('/');
+      window.location.href = '/';
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -80,7 +76,7 @@ const BookingIsland = () => { // Renamed from Appointments
     return () => {
       window.removeEventListener('popstate', handlePopState);
     };
-  }, [navigate]);
+  }, []); // navigate removed from dependencies
 
   const handleAppointmentScheduled = () => {
     const selectedLocation = locations.find(
@@ -120,8 +116,6 @@ const BookingIsland = () => { // Renamed from Appointments
       if (value === formData.branch) {
         return;
       }
-
-      setLoading(true); // Show global loader
     }
   };
 
@@ -196,7 +190,7 @@ const BookingIsland = () => { // Renamed from Appointments
                       }
                       className={`p-6 text-lg text-text-main border-2 rounded-lg transition-all duration-300 cursor-pointer ${
                         formData.branch === location.displayName
-                          ? 'bg-primary border-primary text-text-main'
+                          ? 'bg-primary border-primary text-background font-bold'
                           : 'bg-secondary border-accent hover:border-primary'
                       }`}
                     >
@@ -214,8 +208,8 @@ const BookingIsland = () => { // Renamed from Appointments
                 <CalendlyEmbed
                   branch={formData.branch}
                   formData={formData}
-                  onAppointmentScheduled={handleAppointmentScheduled}
-                  onCalendlyEventTypeViewed={handleCalendlyEventTypeViewed}
+                  // onAppointmentScheduled={handleAppointmentScheduled} // No longer relevant
+                  // onCalendlyEventTypeViewed={handleCalendlyEventTypeViewed} // No longer relevant
                 />
                 {showPreparationGuide && (
                   <PreparationGuide
