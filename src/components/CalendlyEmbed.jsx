@@ -1,3 +1,4 @@
+import React, { useRef, useEffect } from 'react';
 import { InlineWidget, useCalendlyEventListener } from 'react-calendly';
 import { locations } from '../data/locations';
 
@@ -7,12 +8,19 @@ const CalendlyEmbed = ({
   onAppointmentScheduled,
   onCalendlyEventTypeViewed,
 }) => {
+  const calendlyRef = useRef(null);
+
   useCalendlyEventListener({
     onEventTypeViewed: (e) => {
       // Check if the event type viewed is the one we are waiting for to hide the loader
       if (e.data.event === 'calendly.event_type_viewed') {
         if (onCalendlyEventTypeViewed) {
           onCalendlyEventTypeViewed();
+        }
+        // Scroll to and focus the Calendly embed
+        if (calendlyRef.current) {
+          calendlyRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          calendlyRef.current.focus();
         }
       }
     },
@@ -72,7 +80,7 @@ const CalendlyEmbed = ({
   }
 
   return (
-    <div className='w-full'>
+    <div ref={calendlyRef} tabIndex="-1" className='w-full'>
       <InlineWidget url={url} styles={{ minHeight: '80vh', width: '100%' }} />
     </div>
   );
