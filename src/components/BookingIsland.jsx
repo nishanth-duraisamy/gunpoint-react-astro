@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { showLoader, hideLoader } from '../store/loaderStore';
 
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'; // Assuming it's from 24/outline, common path
 import FirstTattooExperience from '../components/FirstTattooExperience';
@@ -51,6 +52,16 @@ const BookingIsland = () => { // Renamed from Appointments
   });
   const [showPreparationGuide, setShowPreparationGuide] = useState(false);
   const [bookedLocationDetails, setBookedLocationDetails] = useState(null);
+
+  // Show loader on mount, hide after a delay
+  useEffect(() => {
+    showLoader();
+    const timer = setTimeout(() => {
+      hideLoader();
+    }, 2000); // Show loader for 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleCalendlyEventTypeViewed = useCallback(() => {
     const calendlyEmbedSection = document.getElementById(

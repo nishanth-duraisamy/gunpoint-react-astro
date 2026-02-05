@@ -5,6 +5,7 @@ import {
 } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from '../assets/logo.webp';
+import { showLoader } from '../store/loaderStore'; // Import showLoader
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -46,6 +47,7 @@ export default function Navbar({ currentPath }) {
                                         key={item.name}
                                         href={item.href}
                                         aria-current={item.current ? 'page' : undefined}
+                                        onClick={showLoader} // Call showLoader on click
                                         className={classNames(
                                             item.current
                                                 ? 'border-primary text-primary'
@@ -106,6 +108,7 @@ export default function Navbar({ currentPath }) {
                             <DisclosureButton
                                 as='a'
                                 href='/appointments'
+                                onClick={showLoader} // Call showLoader on click
                                 className='bg-primary text-background hover:bg-primary-light block font-bold py-2 px-4 rounded-lg text-center mt-2 animate-pulse-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
                             >
                                 Book Now

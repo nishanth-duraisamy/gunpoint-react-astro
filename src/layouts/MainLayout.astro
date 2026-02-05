@@ -2,6 +2,7 @@
 // src/layouts/MainLayout.astro
 import Wrapper from '../components/Wrapper.astro';
 import Schema from '../components/Schema.astro';
+import GlobalLoader from '../components/GlobalLoader'; // Import GlobalLoader
 import '../styles/global.css'
 
 const {
@@ -40,6 +41,8 @@ const currentPath = Astro.url.pathname;
     <Schema/>
 </head>
 <body class="bg-background text-text-main">
+
+<GlobalLoader client:load /> {/* GlobalLoader integrated here */}
 
 <button
         id="scroll-to-top"
