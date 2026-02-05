@@ -1,11 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Appointments from '../components/Appointments.jsx';
-import Wrapper from '../components/Wrapper.jsx';
+// src/pages/appointments.astro
+import MainLayout from '../layouts/MainLayout.astro';
+import BookingIsland from '../components/BookingIsland';
+
+const title = "Book Your Tattoo Appointment";
+const description = "Schedule your next tattoo appointment with Gunpoint Tattoo. Choose your service, design context, and studio location.";
 ---
 
-<Layout>
-  <Wrapper client:only="react" currentPath={Astro.url.pathname}>
-    <Appointments client:only="react" />
-  </Wrapper>
-</Layout>
+<MainLayout title={title} description={description}>
+    {/* We use client:load because the entire booking flow
+      and the global loader need to be ready immediately.
+    */}
+    <BookingIsland client:load />
+</MainLayout>

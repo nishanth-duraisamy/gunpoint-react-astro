@@ -1,0 +1,61 @@
+---
+// src/components/Schema.astro
+import { locations } from '../data/locations';
+
+const websiteUrl = 'https://gunpointtattoostudio.com';
+const contactPhone = '+917667755644';
+
+const schemas = locations.map((location) => {
+    const addressComponents = location.address.split(', ');
+
+    // Logic preserved from your React component
+    const streetAddress = addressComponents
+        .slice(0, addressComponents.length - 3)
+        .join(', ');
+    const addressLocality = addressComponents[addressComponents.length - 3];
+    const addressRegion = addressComponents[addressComponents.length - 2];
+    const postalCode = addressComponents[addressComponents.length - 1];
+
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: location.displayName,
+        image: `${websiteUrl}/logo.webp`,
+        url: websiteUrl,
+        telephone: contactPhone,
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: streetAddress,
+            addressLocality: addressLocality,
+            addressRegion: addressRegion,
+            postalCode: postalCode,
+            addressCountry: 'IN',
+        },
+        hasMap: location.mapSrc,
+        openingHoursSpecification: [
+            {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: [
+                    'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+                ],
+                opens: '10:00',
+                closes: '22:00',
+            },
+        ],
+        priceRange: '$$',
+        slogan: 'Crafting unique tattoo experiences.',
+        logo: `${websiteUrl}/logo.webp`,
+        description: `Experience custom tattoos and piercings at ${location.displayName}.`,
+        sameAs: [
+            'https://www.facebook.com/p/Gun-Point-Tattoo-Studios-100063521092954',
+            'https://www.instagram.com/gunpoint_tattoostudio',
+            'https://wa.me/917667755644',
+        ],
+    };
+});
+---
+
+{/* Injecting multiple schemas into the <head> */}
+{schemas.map((schema) => (
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+    ))}

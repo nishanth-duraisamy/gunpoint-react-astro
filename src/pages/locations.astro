@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import LocationsComponent from '../components/Locations.jsx';
-import Wrapper from '../components/Wrapper.jsx';
+import MainLayout from '../layouts/MainLayout.astro';
+import LocationsComponent from '../components/LocationsComponent';
+
+const title = "Our Locations";
+const description = "Find a Gunpoint Tattoo Studio near you. We have locations across multiple cities including Erode and Tiruppur, offering premium tattoo and piercing services.";
 ---
 
-<Layout>
-  <Wrapper client:only="react" currentPath={Astro.url.pathname}>
-    <LocationsComponent client:only="react" />
-  </Wrapper>
-</Layout>
+<MainLayout title={title} description={description}>
+    <LocationsComponent />
+</MainLayout>

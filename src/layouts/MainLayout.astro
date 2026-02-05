@@ -1,0 +1,46 @@
+---
+// src/layouts/MainLayout.astro
+import Wrapper from '../components/Wrapper';
+import Schema from '../components/Schema.astro'; // Use the new static Astro schema
+import ScrollToTop from '../components/ScrollToTop';
+import '../styles/global.css';
+
+const {
+    title,
+    fullWidth = false,
+    description = "Gunpoint Tattoo Studio - Premium Artistry. Professional Standards. Uncompromising Quality."
+} = Astro.props;
+
+// Get the current URL path to pass to the Wrapper for active link highlighting
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property="og:title" content={`${title} | Gunpoint Tattoo Studio`}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:url" content={Astro.url}/>
+    <meta property="og:image" content={new URL('/logo.webp', Astro.url)}/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="generator" content={Astro.generator}/>
+    <meta name="description" content={description}/>
+    <title>{title} | Gunpoint Tattoo Studio</title>
+
+    <Schema/>
+</head>
+<body class="bg-background text-text-main">
+<ScrollToTop client:load/>
+
+<Wrapper
+        fullWidth={fullWidth}
+        currentPath={currentPath}
+        client:load
+>
+    <slot/>
+</Wrapper>
+</body>
+</html>

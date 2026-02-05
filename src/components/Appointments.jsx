@@ -1,231 +1,212 @@
-import { useState } from 'react';
-import CalendlyEmbed from '../components/CalendlyEmbed';
+import React, { useState, useCallback } from 'react';
 import { useLoading } from '../contexts/LoadingContext';
+import { ChevronLeftIcon } from '@heroicons/react/24/outline';
+import FirstTattooExperience from '../components/FirstTattooExperience';
+import CoverUpExperience from '../components/CoverUpExperience';
+import FineLineExperience from '../components/FineLineExperience';
+import CustomDesignExperience from '../components/CustomDesignExperience';
 import { locations } from '../data/locations';
+import CalendlyEmbed from '../components/CalendlyEmbed';
 import PreparationGuide from '../components/PreparationGuide';
 
-const services = [
-  {
-    name: 'Custom Tattoo Design',
-    description:
-      'A fully unique design based on your ideas, created in collaboration with our artists.',
-  },
-  {
-    name: 'Flash Tattoo',
-    description:
-      'Choose from our collection of pre-designed tattoos for a quicker session.',
-  },
-  {
-    name: 'Cover-ups & Reworks',
-    description:
-      'Transform or restore an existing tattoo with the help of our specialists.',
-  },
-  {
-    name: 'Piercing & Jewelry',
-    description:
-      'Professional piercing services with a selection of high-quality jewelry.',
-  },
+const bookingSteps = [
+    {
+        step: 1,
+        question: 'What are you booking for?',
+        options: ['First tattoo', 'Cover-up', 'Fine-line / minimal', 'Custom design'],
+        key: 'service',
+    },
+    {
+        step: 2,
+        question: 'Design Context',
+        options: ['I know the size and placement', 'I have an idea but need guidance', "I'm still figuring it out"],
+        key: 'designContext',
+    },
+    {
+        step: 3,
+        question: 'Date/Time & Contact Details',
+        key: 'contact',
+    },
 ];
 
-function Appointments() {
-  const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    service: '',
-    designContext: '',
-    branch: '',
-  });
-  const { setLoading } = useLoading();
-  const [isCalendlyReady, setIsCalendlyReady] = useState(false);
-  const [appointmentDetails, setAppointmentDetails] = useState(null);
-
-  const handleCalendlyEventTypeViewed = () => {
-    setIsCalendlyReady(true);
-    setLoading(false);
-  };
-
-  const handleNext = () => {
-    setStep(step + 1);
-  };
-
-  const handleBack = () => {
-    setStep(step - 1);
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleAppointmentScheduled = (e) => {
-    const eventDetails = e.data.payload;
-    const invitee = eventDetails.invitee;
-    const eventType = eventDetails.event.name;
-    const locationName = eventType.split(' - ')[0]; // Assuming location is first part of event name
-    const location = locations.find(loc => loc.name === locationName);
-    
-    setAppointmentDetails({
-      name: invitee.name,
-      email: invitee.email,
-      event: eventType,
-      startTime: new Date(eventDetails.event.start_time).toLocaleString(),
-      locationName: location ? location.name : 'Unknown Location',
-      address: location ? location.address : 'Address not found.',
+const Appointments = () => {
+    const [currentStep, setCurrentStep] = useState(1);
+    const [formData, setFormData] = useState({
+        service: '',
+        designContext: '',
+        branch: '',
+        name: '',
+        email: '',
+        phone: '',
     });
-    setStep(3); // Move to the confirmation step
-  };
+    const [showPreparationGuide, setShowPreparationGuide] = useState(false);
+    const [bookedLocationDetails, setBookedLocationDetails] = useState(null);
 
+    // Note: LoadingContext only works if this component is wrapped in the provider
+    const { setLoading } = useLoading();
 
-  const renderStep1 = () => (
-    <div className='space-y-6 animate-fade-in'>
-      <h2 className='text-3xl font-bold text-center text-primary'>
-        Book Your Appointment
-      </h2>
-      <div className='grid grid-cols-1 gap-6'>
-        <div>
-          <label htmlFor='branch' className='block text-lg font-medium'>
-            Select a branch
-          </label>
-          <select
-            name='branch'
-            id='branch'
-            value={formData.branch}
-            onChange={handleChange}
-            className='mt-1 block w-full bg-secondary border-accent rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary text-lg'
-          >
-            <option value=''>--Please choose a branch--</option>
-            {locations.map((loc) => (
-              <option key={loc.name} value={loc.displayName}>
-                {loc.displayName}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor='service' className='block text-lg font-medium'>
-            What are you looking for?
-          </label>
-          <select
-            name='service'
-            id='service'
-            value={formData.service}
-            onChange={handleChange}
-            className='mt-1 block w-full bg-secondary border-accent rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary text-lg'
-          >
-            <option value=''>--Please choose a service--</option>
-            {services.map((s) => (
-              <option key={s.name} value={s.name}>
-                {s.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor='name' className='block text-lg font-medium'>
-            Your Name
-          </label>
-          <input
-            type='text'
-            name='name'
-            id='name'
-            value={formData.name}
-            onChange={handleChange}
-            className='mt-1 block w-full bg-secondary border-accent rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary text-lg'
-          />
-        </div>
-        <div>
-          <label htmlFor='email' className='block text-lg font-medium'>
-            Your Email
-          </label>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            value={formData.email}
-            onChange={handleChange}
-            className='mt-1 block w-full bg-secondary border-accent rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary text-lg'
-          />
-        </div>
-        <div>
-          <label htmlFor='designContext' className='block text-lg font-medium'>
-            Tell us about your tattoo idea (optional)
-          </label>
-          <textarea
-            name='designContext'
-            id='designContext'
-            rows='4'
-            value={formData.designContext}
-            onChange={handleChange}
-            className='mt-1 block w-full bg-secondary border-accent rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary text-lg'
-          ></textarea>
-        </div>
-      </div>
-      <div className='flex justify-end'>
-        <button
-          onClick={handleNext}
-          className='bg-primary text-background hover:bg-primary-light font-bold py-2 px-6 rounded-lg'
-        >
-          Next
-        </button>
-      </div>
-    </div>
-  );
+    const handleCalendlyEventTypeViewed = useCallback(() => {
+        const calendlyEmbedSection = document.getElementById('calendly-embed-section');
+        if (calendlyEmbedSection) {
+            calendlyEmbedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        setLoading(false);
+    }, [setLoading]);
 
-  const renderStep2 = () => {
-    if (!isCalendlyReady) {
-      setLoading(true);
-    }
+    const handleAppointmentScheduled = () => {
+        const selectedLocation = locations.find((loc) => loc.displayName === formData.branch);
+        if (selectedLocation) {
+            setBookedLocationDetails({
+                locationName: selectedLocation.name,
+                address: selectedLocation.address,
+            });
+        }
+        setShowPreparationGuide(true);
+    };
+
+    const filteredBookingSteps = (
+        formData.service === 'First tattoo'
+            ? bookingSteps
+            : bookingSteps.filter((step) => step.key !== 'designContext')
+    ).map((step, index) => ({ ...step, step: index + 1 }));
+
+    const handleNext = () => {
+        setCurrentStep((prev) => (prev < filteredBookingSteps.length ? prev + 1 : prev));
+    };
+
+    const handleBack = () => {
+        setCurrentStep((prev) => (prev > 1 ? prev - 1 : prev));
+    };
+
+    const handleSelect = (key, value) => {
+        setFormData((prev) => ({ ...prev, [key]: value }));
+        if (key !== 'branch') {
+            handleNext();
+        } else {
+            if (value === formData.branch) return;
+            setLoading(true);
+        }
+    };
+
+    const currentQuestion = filteredBookingSteps.find((s) => s.step === currentStep);
+
+    const renderStepContent = () => {
+        if (!currentQuestion) return null;
+
+        switch (currentQuestion.key) {
+            case 'service':
+            case 'designContext':
+                return (
+                    <div className='w-full max-w-4xl mx-auto'>
+                        <h2 className='text-3xl font-display text-primary mb-8 text-center uppercase'>
+                            {currentQuestion.question}
+                        </h2>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-8'>
+                            {currentQuestion.options.map((option) => (
+                                <button
+                                    key={option}
+                                    onClick={() => handleSelect(currentQuestion.key, option)}
+                                    className={`p-8 text-lg font-body border-2 rounded-xl transition-all duration-300 ${
+                                        formData[currentQuestion.key] === option
+                                            ? 'bg-primary border-primary text-background font-bold shadow-[0_0_20px_rgba(212,175,55,0.3)]'
+                                            : 'bg-secondary border-accent/30 text-text-main hover:border-primary'
+                                    }`}
+                                >
+                                    {option}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                );
+            case 'contact':
+                return (
+                    <div className='w-full max-w-4xl mx-auto'>
+                        {!showPreparationGuide && (
+                            <>
+                                <h2 className='text-3xl font-display text-primary mb-8 text-center uppercase'>
+                                    Which studio are you booking for?
+                                </h2>
+                                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-8'>
+                                    {locations.map((location) => (
+                                        <div
+                                            key={location.name}
+                                            onClick={() => handleSelect('branch', location.displayName)}
+                                            className={`p-6 border-2 rounded-xl transition-all duration-300 cursor-pointer ${
+                                                formData.branch === location.displayName
+                                                    ? 'bg-primary border-primary text-background'
+                                                    : 'bg-secondary border-accent/30 text-text-main hover:border-primary'
+                                            }`}
+                                        >
+                                            <h3 className='text-xl font-display mb-2'>{location.name}</h3>
+                                            <p className='text-sm font-body opacity-90'>{location.address}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </>
+                        )}
+                        {formData.branch && (
+                            <div id='calendly-embed-section' className='mt-8 pt-4'>
+                                <CalendlyEmbed
+                                    branch={formData.branch}
+                                    formData={formData}
+                                    onAppointmentScheduled={handleAppointmentScheduled}
+                                    onCalendlyEventTypeViewed={handleCalendlyEventTypeViewed}
+                                />
+                                {showPreparationGuide && (
+                                    <PreparationGuide bookedLocationDetails={bookedLocationDetails} />
+                                )}
+                            </div>
+                        )}
+                    </div>
+                );
+            default:
+                return null;
+        }
+    };
 
     return (
-      <div className='animate-fade-in'>
-        <h2 className='text-3xl font-bold text-center text-primary mb-6'>
-          Select a Date and Time
-        </h2>
-        <CalendlyEmbed
-          branch={formData.branch}
-          formData={formData}
-          onAppointmentScheduled={handleAppointmentScheduled}
-          onCalendlyEventTypeViewed={handleCalendlyEventTypeViewed}
-        />
-        <div className='mt-6 flex justify-start'>
-          <button
-            onClick={handleBack}
-            className='bg-secondary text-text-main hover:bg-opacity-80 font-bold py-2 px-6 rounded-lg'
-          >
-            Back
-          </button>
+        <div className='bg-background min-h-screen py-12'>
+            <div className='w-full max-w-7xl mx-auto px-4'>
+                {!showPreparationGuide && (
+                    <div className='flex justify-center items-center mb-16'>
+                        {filteredBookingSteps.map(({ step }) => (
+                            <React.Fragment key={step}>
+                                <div
+                                    className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                                        currentStep >= step ? 'bg-primary shadow-[0_0_10px_rgba(212,175,55,0.5)]' : 'bg-secondary'
+                                    }`}
+                                ></div>
+                                {step < filteredBookingSteps.length && (
+                                    <div className='w-16 h-px bg-accent/30'></div>
+                                )}
+                            </React.Fragment>
+                        ))}
+                    </div>
+                )}
+
+                {renderStepContent()}
+
+                <div className='flex justify-between items-center mt-12 w-full max-w-md mx-auto'>
+                    {currentStep > 1 && !showPreparationGuide && (
+                        <button
+                            onClick={handleBack}
+                            className='flex items-center text-text-main/60 hover:text-primary transition-colors font-body'
+                        >
+                            <ChevronLeftIcon className='mr-2 h-5 w-5' /> Back
+                        </button>
+                    )}
+                </div>
+            </div>
+
+            {/* Dynamic Content Sections */}
+            <div className='w-full max-w-7xl mx-auto mt-24 px-4'>
+                {formData.service === 'First tattoo' && <FirstTattooExperience />}
+                {formData.service === 'Cover-up' && <CoverUpExperience />}
+                {formData.service === 'Fine-line / minimal' && <FineLineExperience />}
+                {formData.service === 'Custom design' && <CustomDesignExperience />}
+            </div>
         </div>
-      </div>
     );
-  };
-
-  const renderStep3 = () => (
-    <div className="text-center animate-fade-in">
-      <h2 className="text-3xl font-bold text-primary mb-4">Appointment Confirmed!</h2>
-      {appointmentDetails && (
-        <div className="bg-secondary p-6 rounded-lg shadow-lg text-left max-w-lg mx-auto">
-          <p className="text-lg mb-2"><strong className="text-primary">Name:</strong> {appointmentDetails.name}</p>
-          <p className="text-lg mb-2"><strong className="text-primary">Email:</strong> {appointmentDetails.email}</p>
-          <p className="text-lg mb-2"><strong className="text-primary">Service:</strong> {appointmentDetails.event}</p>
-          <p className="text-lg mb-4"><strong className="text-primary">Date & Time:</strong> {appointmentDetails.startTime}</p>
-          <p className="text-lg mb-4"><strong className="text-primary">Location:</strong> {appointmentDetails.address}</p>
-          <p>You will receive a confirmation email shortly. Please also check your spam folder.</p>
-        </div>
-      )}
-       <div className='mt-8'>
-         <PreparationGuide bookedLocationDetails={appointmentDetails} />
-       </div>
-    </div>
-  );
-
-
-  return (
-    <div className='max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8'>
-      {step === 1 && renderStep1()}
-      {step === 2 && renderStep2()}
-      {step === 3 && renderStep3()}
-    </div>
-  );
-}
+};
 
 export default Appointments;

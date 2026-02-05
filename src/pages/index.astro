@@ -1,15 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeroSection from '../components/HeroSection.jsx';
-import HomeContent from '../components/HomeContent.jsx';
-import Wrapper from '../components/Wrapper.jsx';
-import LocalBusinessSchema from '../components/LocalBusinessSchema.jsx';
+// src/pages/index.astro
+import MainLayout from '../layouts/MainLayout.astro';
+import HeroSection from '../components/HeroSection';
+import HomeContent from '../components/HomeContent';
+import MeetTheArtists from '../components/MeetTheArtists';
+
+// Define the specific SEO for the homepage
+const title = "Custom Tattoos & Piercings";
+const description = "Welcome to Gunpoint Tattoo Studio, your premier destination for custom tattoo designs, professional piercings, cover-ups, and fine-line tattoos. Explore our artists' portfolios and book your next appointment.";
 ---
 
-<Layout>
-  <LocalBusinessSchema client:only="react" />
-  <Wrapper client:only="react" fullWidth={true} currentPath={Astro.url.pathname}>
-    <HeroSection client:only="react" />
-    <HomeContent client:only="react" />
-  </Wrapper>
-</Layout>
+<MainLayout
+    title={title}
+    description={description}
+    fullWidth={true}
+>
+  <HeroSection client:load />
+
+  <HomeContent />
+
+  <MeetTheArtists client:visible />
+</MainLayout>

@@ -1,6 +1,8 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-/* 1. Define your Custom Theme */
+/* Import fonts for the Gunpoint aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pirata+One&display=swap');
+
 @theme {
   /* Core Semantic Palette */
   --color-primary: #d4af37; /* Brand Gold */
@@ -16,42 +18,29 @@
   /* Text */
   --color-text-main: #ffffff; /* Primary White */
 
-  /* Optional: Override default font if you have one */
+  /* Fonts */
   --font-display: 'Pirata One', serif;
   --font-body: 'Lato', sans-serif;
-  --font-sans:
-    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/* 2. Apply Global Defaults (The "App Theme") */
 @layer base {
   body {
-    /* Sets the default background and text color for the whole app */
     background-color: var(--color-background);
     color: var(--color-text-main);
-
-    /* Smooth scrolling & font rendering */
-    font-family: var(--font-sans);
+    font-family: var(--font-body); /* Set default to body font */
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Optional: Default heading styles */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
+    font-family: var(--font-display); /* Use the tattoo-style font for headings */
     font-weight: 700;
   }
 }
 
+/* Custom Animations */
 @keyframes pulse-glow {
-  0%,
-  100% {
+  0%, 100% {
     box-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
     opacity: 0.9;
   }
@@ -80,7 +69,7 @@
   animation: fade-in 1s ease-out forwards;
 }
 
-/* ignore powered by calendly at right bottom */
+/* Third-party Overrides */
 .calendly-badge-widget {
-  display: none;
+  display: none !important;
 }
