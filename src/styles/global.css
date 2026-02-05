@@ -25,6 +25,7 @@
   html, body {
     overflow-x: hidden;
     scroll-behavior: smooth;
+    height: 100%; /* Ensure html and body take full height */
   }
 
   body {
