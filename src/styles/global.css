@@ -1,0 +1,54 @@
+/* Must be the very first line */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pirata+One&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Core Semantic Palette */
+  --color-primary: #d4af37;
+  --color-primary-light: #fce594;
+  --color-primary-dark: #4a3612;
+
+  --color-secondary: #333333;
+  --color-accent: #8c6a28;
+
+  --color-background: #000000;
+  --color-text-main: #ffffff;
+
+  --font-display: 'Pirata One', system-ui;
+  --font-body: 'Lato', sans-serif;
+}
+
+@layer base {
+  html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-main);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    text-transform: uppercase;
+  }
+}
+
+/* Custom Animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); opacity: 0.9; }
+  50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.7); opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+/* Hide Calendly Branding */
+.calendly-badge-widget {
+  display: none !important;
+}

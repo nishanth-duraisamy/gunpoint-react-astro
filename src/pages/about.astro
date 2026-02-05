@@ -1,0 +1,12 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import AboutUsComponent from '../components/AboutUs';
+
+const title = "About Us";
+const description = "Learn the story of Gunpoint Tattoo Studio and our founder, Ranjith Kumar. From Erode to a celebrated name in professional tattoo artistry.";
+---
+
+<MainLayout title={title} description={description}>
+    {/* No client:load needed - this is a static component with 0 JS */}
+    <AboutUsComponent />
+</MainLayout>
