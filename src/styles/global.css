@@ -68,6 +68,19 @@
   animation: fade-in 1s ease-out forwards;
 }
 
+@keyframes spin-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-spin-y {
+  animation: spin-y 1s linear infinite;
+}
+
 /* Hide Calendly Branding */
 .calendly-badge-widget {
   display: none !important;

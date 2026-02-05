@@ -7,12 +7,16 @@ function classNames(...classes) {
 }
 
 export default function Navbar({ currentPath }) {
+    const normalizedCurrentPath = currentPath.endsWith('/') && currentPath.length > 1
+        ? currentPath.slice(0, -1)
+        : currentPath;
+
     const navigation = [
-        { name: 'Home', href: '/', current: currentPath === '/' },
-        { name: 'Services', href: '/services', current: currentPath === '/services' },
-        { name: 'Locations', href: '/locations', current: currentPath === '/locations' },
-        { name: 'Contact', href: '/contact', current: currentPath === '/contact' },
-        { name: 'About us', href: '/about', current: currentPath === '/about' },
+        { name: 'Home', href: '/', current: normalizedCurrentPath === '/' },
+        { name: 'Services', href: '/services', current: normalizedCurrentPath === '/services' },
+        { name: 'Locations', href: '/locations', current: normalizedCurrentPath === '/locations' },
+        { name: 'Contact', href: '/contact', current: normalizedCurrentPath === '/contact' },
+        { name: 'About us', href: '/about', current: normalizedCurrentPath === '/about' },
     ];
 
     return (
