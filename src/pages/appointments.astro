@@ -3,11 +3,13 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import BookingIsland from '../components/BookingIsland';
 
-const title = "Book Your Tattoo Appointment";
+const title = "Book Your Tattoo Appointment | Gunpoint Tattoo";
 const description = "Schedule your next tattoo appointment with Gunpoint Tattoo. Choose your service, design context, and studio location.";
+const ogTitle = "Book Your Tattoo Appointment | Gunpoint Tattoo";
+const ogUrl = "https://gunpointtattoostudio.com/appointments";
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout title={title} description={description} ogTitle={ogTitle} ogUrl={ogUrl}>
     {/* We use client:load because the entire booking flow
       and the global loader need to be ready immediately.
     */}

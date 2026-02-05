@@ -26,12 +26,12 @@ const HomeContent = () => {
     return (
         <>
             {/* Welcome Section */}
-            <div className='py-12 bg-background'>
+            <div className='py-12 bg-background-light'>
                 <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
                     <h2 className='text-3xl font-extrabold text-text-main'>
                         Welcome to Gunpoint Tattoo Studio
                     </h2>
-                    <p className='mt-4 max-w-2xl mx-auto text-xl text-text-main/80'>
+                    <p className='mt-4 max-w-2xl mx-auto text-xl text-text-light'>
                         Your journey to incredible body art starts here. We are a collective
                         of passionate artists dedicated to creating unique and meaningful
                         tattoos. Whether you're looking for a small, personal piece or a
@@ -54,7 +54,7 @@ const HomeContent = () => {
             <div className='bg-background py-16 sm:py-24'>
                 <div className='mx-auto max-w-7xl px-6 lg:px-8'>
                     <div className='text-center'>
-                        <h2 className='text-4xl text-primary sm:text-5xl font-display'>OUR EXPERTISE</h2>
+                        <h2 className='text-4xl text-primary sm:text-5xl'>OUR EXPERTISE</h2>
                     </div>
                     <div className='mt-16 grid grid-cols-1 gap-8 sm:mt-20 md:grid-cols-3'>
                         {expertiseData.map((item) => (

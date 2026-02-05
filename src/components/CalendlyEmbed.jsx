@@ -2,79 +2,80 @@ import { InlineWidget, useCalendlyEventListener } from 'react-calendly';
 import { locations } from '../data/locations';
 
 const CalendlyEmbed = ({
-                           branch,
-                           formData,
-                           onAppointmentScheduled,
-                           onCalendlyEventTypeViewed,
-                       }) => {
-    // Listen for Calendly events to coordinate with the GlobalLoader
-    useCalendlyEventListener({
-        onEventTypeViewed: (e) => {
-            if (e.data.event === 'calendly.event_type_viewed') {
-                if (onCalendlyEventTypeViewed) {
-                    onCalendlyEventTypeViewed();
-                }
-            }
-        },
-        onEventScheduled: (e) => {
-            onAppointmentScheduled(e);
-        },
-    });
-
-    const selectedLocation = locations.find((loc) => loc.displayName === branch);
-    let url = selectedLocation?.calendlyUrl;
-
-    if (!url) {
-        return (
-            <div className='text-center py-8 font-body text-text-main'>
-                <p>No Calendly link found for the selected branch.</p>
-            </div>
-        );
-    }
-
-    // Prefill data from the previous steps of your booking form
-    const prefill = {};
-    if (formData) {
-        prefill.name = formData.name;
-        prefill.email = formData.email;
-        prefill.customAnswers = {};
-
-        let customNotes = '';
-        if (formData.service) {
-            customNotes += `Service: ${formData.service}\n`;
+  branch,
+  formData,
+  onAppointmentScheduled,
+  onCalendlyEventTypeViewed,
+}) => {
+  useCalendlyEventListener({
+    onEventTypeViewed: (e) => {
+      // Check if the event type viewed is the one we are waiting for to hide the loader
+      if (e.data.event === 'calendly.event_type_viewed') {
+        if (onCalendlyEventTypeViewed) {
+          onCalendlyEventTypeViewed();
         }
-        if (formData.designContext) {
-            customNotes += `Design Context: ${formData.designContext}\n`;
-        }
+      }
+    },
+    onEventScheduled: (e) => {
+      onAppointmentScheduled(e);
+    },
+  });
 
-        if (customNotes) {
-            prefill.customAnswers['a2'] = customNotes;
-        }
-    }
+  const selectedLocation = locations.find((loc) => loc.displayName === branch);
 
-    // Build query parameters for a branded, dark-themed experience
-    const queryParams = new URLSearchParams();
-    if (prefill.name) queryParams.append('name', prefill.name);
-    if (prefill.email) queryParams.append('email', prefill.email);
-    queryParams.append('a1', '+91'); // Defaulting to India country code
-    if (prefill.customAnswers && prefill.customAnswers['a2'])
-        queryParams.append('a2', prefill.customAnswers['a2']);
+  let url = selectedLocation?.calendlyUrl;
 
-    // Apply Gunpoint Studio colors to the Calendly interface
-    const themeParams = 'hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=d4af37';
-    url = queryParams.toString() ? `${url}?${queryParams.toString()}&${themeParams}` : `${url}?${themeParams}`;
-
+  if (!url) {
     return (
-        <div className='w-full border-t border-accent/20 mt-8 pt-8'>
-            <InlineWidget
-                url={url}
-                styles={{
-                    minHeight: '800px', // Explicit height to prevent layout shift
-                    width: '100%'
-                }}
-            />
-        </div>
+      <div className='text-center py-8'>
+        <p>No Calendly link found for the selected branch.</p>
+      </div>
     );
+  }
+
+  const prefill = {};
+  if (formData) {
+    prefill.name = formData.name;
+    prefill.email = formData.email;
+    prefill.customAnswers = {};
+
+    let customNotes = '';
+    if (formData.service) {
+      customNotes += `Service: ${formData.service}\n`;
+    }
+    if (formData.designContext) {
+      customNotes += `Design Context: ${formData.designContext}\n`;
+    }
+
+    if (customNotes) {
+      prefill.customAnswers['a2'] = customNotes; // Assuming 'a2' is the custom question for notes
+    }
+
+    if (formData.dateTime) {
+      prefill.date = new Date(formData.dateTime).toISOString();
+    }
+  }
+
+  // Append prefill parameters to the URL
+  const queryParams = new URLSearchParams();
+  if (prefill.name) queryParams.append('name', prefill.name);
+  if (prefill.email) queryParams.append('email', prefill.email);
+    queryParams.append('a1', '+91');
+  if (prefill.customAnswers && prefill.customAnswers['a2'])
+    queryParams.append('a2', prefill.customAnswers['a2']);
+  if (prefill.date) queryParams.append('date', prefill.date);
+
+  if (queryParams.toString()) {
+    url = `${url}?${queryParams.toString()}&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=d4af37`;
+  } else {
+    url = `${url}?hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=d4af37`;
+  }
+
+  return (
+    <div className='w-full'>
+      <InlineWidget url={url} styles={{ minHeight: '80vh', width: '100%' }} />
+    </div>
+  );
 };
 
 export default CalendlyEmbed;

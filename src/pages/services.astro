@@ -1,0 +1,14 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ServicesSection from '../components/ServicesSection';
+
+const title = "Our Services | Gunpoint Tattoo Studio";
+const description = "Explore the range of services offered at Gunpoint Tattoo Studio, including custom tattoo designs, cover-ups, fine-line tattoos, piercings, and more. Find your perfect style.";
+const ogTitle = "Our Services | Gunpoint Tattoo Studio";
+const ogDescription = "Explore the range of services offered at Gunpoint Tattoo Studio.";
+const ogUrl = "https://gunpointtattoostudio.com/services";
+---
+
+<MainLayout title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} ogUrl={ogUrl}>
+    <ServicesSection client:load />
+</MainLayout>

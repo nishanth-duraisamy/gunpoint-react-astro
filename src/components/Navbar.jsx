@@ -32,12 +32,12 @@ export default function Navbar({ currentPath }) {
                                 <a href='/' className='flex items-center'>
                                     <img
                                         alt='Gunpoint Tattoo Studio'
-                                        src={logo.src} /* Using .src for Astro asset resolution */
+                                        src={logo.src}
                                         className='h-10 w-auto'
                                     />
                                     <span className='ml-3 hidden sm:inline text-3xl sm:text-4xl font-display text-text-main'>
-                    Gunpoint Tattoo Studio
-                  </span>
+                                        Gunpoint Tattoo Studio
+                                    </span>
                                 </a>
                             </div>
                             <div className='hidden sm:flex sm:space-x-8 flex-grow justify-center'>
@@ -49,8 +49,8 @@ export default function Navbar({ currentPath }) {
                                         className={classNames(
                                             item.current
                                                 ? 'border-primary text-primary'
-                                                : 'border-transparent text-text-main hover:border-primary-light hover:text-primary-light',
-                                            'inline-flex items-center border-b-2 px-1 pt-1 text-lg font-medium transition-colors'
+                                                : 'border-transparent hover:border-primary-light hover:text-primary-light',
+                                            'inline-flex items-center border-b-2 px-1 pt-1 text-lg font-medium',
                                         )}
                                     >
                                         {item.name}
@@ -60,18 +60,25 @@ export default function Navbar({ currentPath }) {
                             <div className='hidden sm:block'>
                                 <a
                                     href='/appointments'
-                                    className='bg-primary text-background hover:bg-primary-light font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out self-center animate-pulse-glow'
+                                    className='bg-primary text-background hover:bg-primary-light font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out self-center animate-pulse-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
                                 >
                                     Book Now
                                 </a>
                             </div>
                             <div className='-mr-2 flex items-center md:hidden'>
                                 <DisclosureButton className='relative inline-flex items-center justify-center rounded-md p-2 text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-text-main'>
+                                    <span className='absolute -inset-0.5' />
                                     <span className='sr-only'>Open main menu</span>
                                     {open ? (
-                                        <XMarkIcon className='block h-8 w-8' aria-hidden='true' />
+                                        <XMarkIcon
+                                          className='block h-8 w-8'
+                                          aria-hidden='true'
+                                        />
                                     ) : (
-                                        <Bars3Icon className='block h-8 w-8' aria-hidden='true' />
+                                        <Bars3Icon
+                                          className='block h-8 w-8'
+                                          aria-hidden='true'
+                                        />
                                     )}
                                 </DisclosureButton>
                             </div>
@@ -87,9 +94,9 @@ export default function Navbar({ currentPath }) {
                                     href={item.href}
                                     className={classNames(
                                         item.current
-                                            ? 'bg-secondary text-primary'
-                                            : 'text-text-main hover:bg-secondary hover:text-primary',
-                                        'block rounded-md px-3 py-2 text-base font-medium text-center'
+                                            ? 'bg-secondary'
+                                            : 'hover:bg-secondary hover:text-primary',
+                                        'block rounded-md px-3 py-2 text-base font-medium text-center',
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
                                 >
@@ -99,7 +106,7 @@ export default function Navbar({ currentPath }) {
                             <DisclosureButton
                                 as='a'
                                 href='/appointments'
-                                className='bg-primary text-background hover:bg-primary-light block font-bold py-2 px-4 rounded-lg text-center mt-2 animate-pulse-glow'
+                                className='bg-primary text-background hover:bg-primary-light block font-bold py-2 px-4 rounded-lg text-center mt-2 animate-pulse-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
                             >
                                 Book Now
                             </DisclosureButton>

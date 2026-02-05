@@ -2,11 +2,11 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import AboutUsComponent from '../components/AboutUs';
 
-const title = "About Us";
-const description = "Learn the story of Gunpoint Tattoo Studio and our founder, Ranjith Kumar. From Erode to a celebrated name in professional tattoo artistry.";
+const title = "About Gunpoint Tattoo Studio - Our Story & Mission";
+const description = "Learn about Gunpoint Tattoo Studio's mission, values, and the talented artists behind our unique tattoo and piercing experiences. Discover our passion for art and customer satisfaction.";
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout title={title} description={description} ogTitle="About Gunpoint Tattoo Studio" ogDescription="Learn about Gunpoint Tattoo Studio's mission, values, and the talented artists behind our unique tattoo and piercing experiences." ogUrl="https://gunpointtattoostudio.com/about">
     {/* No client:load needed - this is a static component with 0 JS */}
     <AboutUsComponent />
 </MainLayout>

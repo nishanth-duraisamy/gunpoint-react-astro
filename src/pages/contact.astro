@@ -3,11 +3,36 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Contact from '../components/Contact';
 
-const title = "Contact Us";
-const description = "Get in touch with Gunpoint Tattoo Studio. Reach us by phone, email, or social media for inquiries about our Erode and Tiruppur locations.";
+const title = "Contact Us | Gunpoint Tattoo Studio";
+const description = "Get in touch with Gunpoint Tattoo Studio for appointments, inquiries, and consultations. Find our contact information, studio locations, and social media links.";
+const ogTitle = "Contact Us | Gunpoint Tattoo Studio";
+const ogDescription = "Get in touch with Gunpoint Tattoo Studio for appointments, inquiries, and consultations.";
+const ogUrl = "https://gunpointtattoostudio.com/contact";
 ---
 
-<MainLayout title={title} description={description}>
-    {/* Standard static rendering: 0 bytes of JS sent to the client */}
+<MainLayout title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} ogUrl={ogUrl}>
     <Contact />
+
+    <div class='bg-background text-text-main py-12'>
+        <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+            <h2 class='text-3xl font-body text-primary text-center mb-6'>
+                Connect with Gunpoint Tattoo Studio
+            </h2>
+            <p class='text-lg text-text-muted text-center leading-relaxed'>
+                At Gunpoint Tattoo Studio, we&apos;re always here to help you bring
+                your tattoo and piercing dreams to life. Whether you&apos;re looking
+                to book a custom tattoo consultation, inquire about our flash tattoo
+                availability, or need details on our professional piercing services,
+                our team is ready to assist.
+                <br />
+                <br />
+                Our friendly staff at Gunpoint Tattoo Studio is committed to
+                providing a welcoming and informative experience. Don&apos;t
+                hesitate to reach out via phone, email, or connect with us on social
+                media. We look forward to hearing from you and helping you start
+                your next artistic journey with{' '}
+                <span class='text-primary'>Gunpoint Tattoo Studio</span>.
+            </p>
+        </div>
+    </div>
 </MainLayout>

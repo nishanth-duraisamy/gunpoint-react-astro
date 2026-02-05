@@ -14,7 +14,7 @@ export const LoadingProvider = ({ children }) => {
 
 export const useLoading = () => {
   const context = useContext(LoadingContext);
-  // This error is your best friend during migration to catch unhydrated components
+
   if (context === undefined) {
     throw new Error('useLoading must be used within a LoadingProvider');
   }

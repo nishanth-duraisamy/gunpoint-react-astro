@@ -2,10 +2,13 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import LocationsComponent from '../components/LocationsComponent';
 
-const title = "Our Locations";
-const description = "Find a Gunpoint Tattoo Studio near you. We have locations across multiple cities including Erode and Tiruppur, offering premium tattoo and piercing services.";
+const title = "Our Studio Locations | Gunpoint Tattoo Studio";
+const description = "Find Gunpoint Tattoo Studio locations in Erode and Tiruppur. Get directions, contact information, and operating hours for our tattoo and piercing shops.";
+const ogTitle = "Our Studio Locations | Gunpoint Tattoo Studio";
+const ogDescription = "Find Gunpoint Tattoo Studio locations in Erode and Tiruppur.";
+const ogUrl = "https://gunpointtattoostudio.com/locations";
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} ogUrl={ogUrl}>
     <LocationsComponent />
 </MainLayout>

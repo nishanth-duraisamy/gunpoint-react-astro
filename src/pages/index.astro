@@ -6,14 +6,30 @@ import HomeContent from '../components/HomeContent';
 import MeetTheArtists from '../components/MeetTheArtists';
 
 // Define the specific SEO for the homepage
-const title = "Custom Tattoos & Piercings";
+const title = "Gunpoint Tattoo Studio - Custom Tattoos & Piercings";
 const description = "Welcome to Gunpoint Tattoo Studio, your premier destination for custom tattoo designs, professional piercings, cover-ups, and fine-line tattoos. Explore our artists' portfolios and book your next appointment.";
+const ogTitle = "Gunpoint Tattoo Studio - Custom Tattoos & Piercings";
+const ogDescription = "Welcome to Gunpoint Tattoo Studio, your premier destination for custom tattoo designs, professional piercings, cover-ups, and fine-line tattoos.";
+const ogUrl = "https://gunpointtattoostudio.com/";
+const ogImage = "https://gunpointtattoostudio.com/logo.webp";
+const twitterCard = "summary_large_image";
+const twitterTitle = "Gunpoint Tattoo Studio - Custom Tattoos & Piercings";
+const twitterDescription = "Welcome to Gunpoint Tattoo Studio, your premier destination for custom tattoo designs, professional piercings, cover-ups, and fine-line tattoos.";
+const twitterImage = "https://gunpointtattoostudio.com/logo.webp";
 ---
 
 <MainLayout
     title={title}
     description={description}
     fullWidth={true}
+    ogTitle={ogTitle}
+    ogDescription={ogDescription}
+    ogUrl={ogUrl}
+    ogImage={ogImage}
+    twitterCard={twitterCard}
+    twitterTitle={twitterTitle}
+    twitterDescription={twitterDescription}
+    twitterImage={twitterImage}
 >
   <HeroSection client:load />
 
