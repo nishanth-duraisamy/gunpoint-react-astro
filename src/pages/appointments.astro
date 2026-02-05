@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Appointments from '../components/Appointments.jsx';
+import Wrapper from '../components/Wrapper.jsx';
+---
+
+<Layout>
+  <Wrapper client:only="react" currentPath={Astro.url.pathname}>
+    <Appointments client:only="react" />
+  </Wrapper>
+</Layout>

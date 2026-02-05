@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.jsx';
+import HomeContent from '../components/HomeContent.jsx';
+import Wrapper from '../components/Wrapper.jsx';
+import LocalBusinessSchema from '../components/LocalBusinessSchema.jsx';
+---
+
+<Layout>
+  <LocalBusinessSchema client:only="react" />
+  <Wrapper client:only="react" fullWidth={true} currentPath={Astro.url.pathname}>
+    <HeroSection client:only="react" />
+    <HomeContent client:only="react" />
+  </Wrapper>
+</Layout>

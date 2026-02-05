@@ -1,0 +1,23 @@
+---
+import '../index.css';
+import AppProvider from '../components/AppProvider.jsx';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <AppProvider client:only="react">
+      <slot />
+    </AppProvider>
+    <script>
+      window.scrollTo(0, 0);
+    </script>
+  </body>
+</html>
