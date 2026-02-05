@@ -5,17 +5,24 @@ import Footer from './Footer';
 const { currentPath, fullWidth = false } = Astro.props;
 ---
 
-<div class='bg-background min-h-screen flex flex-col'>
+<div class='bg-background text-text-main h-full flex flex-col'>
     {/* client:load is required for the mobile menu toggle to work */}
     <Navbar client:load currentPath={currentPath} />
 
-    <div class='flex-grow py-4'>
-        <main>
-            <div class={fullWidth ? '' : 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'}>
-                <slot />
-            </div>
-        </main>
-    </div>
+            <div class='flex-grow overflow-y-auto will-change-[transform,scroll-position]'>
 
-    <Footer />
-</div>
+                <main class='py-4'>
+
+                    <div class={fullWidth ? '' : 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'}>
+
+                        <slot />
+
+                    </div>
+
+                </main>
+
+                <Footer /> <!-- Footer moved inside the scrollable content -->
+
+            </div>
+
+    </div>

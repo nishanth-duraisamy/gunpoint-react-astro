@@ -29,12 +29,13 @@
   html, body {
     overflow-x: hidden;
     scroll-behavior: smooth;
-    height: 100%; /* Ensure html and body take full height */
+    height: 100%;
+    overflow: hidden; /* Prevent outer scrollbar */
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-text-main);
+    display: flex; /* Make body a flex container */
+    flex-direction: column; /* Stack children vertically */
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
@@ -73,4 +74,25 @@
 /* Hide Calendly Branding */
 .calendly-badge-widget {
   display: none !important;
+}
+
+/* Custom Scrollbar */
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background); /* Dark background */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary); /* Gold thumb */
+  border-radius: 10px;
+  border: 2px solid var(--color-background); /* Border to match track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light); /* Lighter gold on hover */
 }
