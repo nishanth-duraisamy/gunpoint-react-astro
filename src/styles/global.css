@@ -27,7 +27,6 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
     height: 100%;
-    overflow: hidden; /* Prevent outer scrollbar */
   }
 
   body {

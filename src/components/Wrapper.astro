@@ -4,6 +4,6 @@ import AppShell from './AppShell';
 const { currentPath, fullWidth = false } = Astro.props;
 ---
 
-<AppShell currentPath={currentPath} fullWidth={fullWidth}>
+<AppShell client:load currentPath={currentPath} fullWidth={fullWidth}>
     <slot />
 </AppShell>
