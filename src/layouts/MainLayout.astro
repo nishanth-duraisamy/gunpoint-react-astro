@@ -37,6 +37,7 @@ const currentPath = Astro.url.pathname;
     <meta property="twitter:description" content={twitterDescription} />
     <meta property="twitter:image" content={twitterImage} />
     <title>{title} | Gunpoint Tattoo Studio</title>
+    <link rel="canonical" href={Astro.url.href} />
     <link rel="icon" type="image/webp" href="/logo.webp" />
     <Schema/>
 </head>

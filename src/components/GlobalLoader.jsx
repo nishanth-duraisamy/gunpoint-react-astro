@@ -23,7 +23,7 @@ const GlobalLoader = () => {
         if ($isGlobalLoading) {
             const interval = setInterval(() => {
                 setText(() => getRandomText());
-            }, 1000); // Change text every 1 second (frequent)
+            }, 2000); // Change text every 1 second (frequent)
 
 
             return () => {
